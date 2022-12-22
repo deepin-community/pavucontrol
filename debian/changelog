@@ -1,0 +1,225 @@
+pavucontrol (5.0-2) unstable; urgency=medium
+
+  * Bump libpulse-dev to >= 15.
+    In order to enable bluetooth codec switching support, we need a new enough pulse library.
+    (Closes: #992925)
+
+ -- Felipe Sateler <fsateler@debian.org>  Thu, 26 Aug 2021 08:47:26 -0400
+
+pavucontrol (5.0-1) unstable; urgency=medium
+
+  * New upstream version
+    - Drop patches applied upstream
+    - Add libjson-glib-dev Build-Depends
+
+ -- Felipe Sateler <fsateler@debian.org>  Tue, 24 Aug 2021 08:49:53 -0400
+
+pavucontrol (4.0-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Name (from
+    ./configure), Repository, Repository-Browse.
+
+  [ Felipe Sateler ]
+  * Pick upstream patch escaping the card name.
+    Fixes warnings with cards with & in the name. (Closes: #958286)
+
+ -- Felipe Sateler <fsateler@debian.org>  Sat, 25 Apr 2020 12:14:20 -0400
+
+pavucontrol (4.0-1) unstable; urgency=medium
+
+  [ Patrice Duroux ]
+  * debian/watch: update and upgrade to version 4
+  * debian/control: update Vcs-* to salsa
+
+  [ Felipe Sateler ]
+  * New upstream version 4.0
+  * Drop patches applied upstream
+  * Bump Standards-Version
+  * Bump debhelper compat level to 12
+
+ -- Felipe Sateler <fsateler@debian.org>  Wed, 18 Dec 2019 10:18:24 -0300
+
+pavucontrol (3.0-4) unstable; urgency=medium
+
+  * Prepare new version
+  * Drop unused build dependency on libglademm-2.4-dev.
+    The port to GTK3 happened a while ago. (Closes: #885062)
+  * Bump Standards-Version
+    - Remove menu file, as pavucontrol ships a desktop file
+  * Switch from cdbs to dh sequencer
+    - Bump debhelper compat level from 5 to 11
+    - Use automatic dbgsym instead of manual dbg package
+  * We don't need root to build, so tell debhelper and dpkg that
+  * Remove version constraints satisfied since <= stretch
+  * Use https urls wherever possible
+
+ -- Felipe Sateler <fsateler@debian.org>  Sun, 24 Dec 2017 13:54:02 -0300
+
+pavucontrol (3.0-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  [ Felipe Sateler ]
+  * Add revision date to pavucontrol manpage to make build reproducible
+  * Install real README file instead of a broken symlink (Closes: #862729)
+
+  [ Laurent Bigonville ]
+  * Use changes-prevent icon instead of the stock_lock one (Closes: #863203)
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 23 May 2017 18:36:53 +0200
+
+pavucontrol (3.0-3) unstable; urgency=medium
+
+  * pavucontrol.1: document --tab option. Thanks Tomas Pospisek
+    Closes: #785434.
+
+ -- Felipe Sateler <fsateler@debian.org>  Sat, 16 May 2015 15:15:38 -0300
+
+pavucontrol (3.0-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Felipe Sateler <fsateler@debian.org>  Wed, 29 Apr 2015 23:51:25 -0300
+
+pavucontrol (3.0-1) experimental; urgency=medium
+
+  * New upstream release. Closes: #781104
+    - Drop all patches: applied upstream
+    - Doesn't expand forever. Closes: #768500
+
+ -- Felipe Sateler <fsateler@debian.org>  Fri, 10 Apr 2015 23:15:38 -0300
+
+pavucontrol (2.0-3) unstable; urgency=medium
+
+  * Backport patches from upstream that fix gtk/glade usage
+  * Handle IO errors when loading theme icon. Closes: #765725
+  * Drop patchsys-quilt: package is 3.0 (quilt)
+  * Drop README-updating.patch, remove README on clean to ensure rebuild
+  * Add myself to uploaders
+  * Bump standards version, no changes needed
+
+ -- Felipe Sateler <fsateler@debian.org>  Wed, 22 Oct 2014 20:44:36 -0300
+
+pavucontrol (2.0-2) unstable; urgency=medium
+
+  [ Léo Cavaillé ]
+  * Build debug package pavucontrol-dbg with symbols
+  (Closes: #737451)
+  * Adds pulseaudio server to Recommends (Closes: #717719,
+  Closes: #608034)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Mon, 07 Apr 2014 21:10:49 +0200
+
+pavucontrol (2.0-1) unstable; urgency=high
+
+  [ Christer Stenbrenden ]
+  * New upstream release (Closes: #712551)
+  * Don't crash if pa_stream_peek returns NULL (Closes: #735898)
+    + Added debian/patches/0001-Don-t-crash...
+  * README file improvement
+
+  [ Léo Cavaillé ]
+
+  * Fixed debian/patches/0001-Don-t-crash... by re-adding pa_stream_peek
+  call
+  * debian/control: bump standards version to 3.9.5
+  * Used a patch for README improvements to keep upstream tarball clean
+    + Added debian/patches/0002-README-updating.patch
+
+ -- Léo Cavaillé <leo@cavaille.net>  Wed, 05 Mar 2014 21:16:08 +0100
+
+pavucontrol (1.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/watch: Update for .xz tarballs (Closes: #644698)
+  * debian/control: Set pkg-pulseaudio-devel as the maintainer, removing CJ
+    (Closes: #636427)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 19 May 2012 23:24:03 +0200
+
+pavucontrol (0.99.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches/0001-Define-missing-flags.patch
+    + Removed: Not needed anymore
+  * debian/control: Update gtk related build-deps to gtk3
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 18 Sep 2011 21:58:31 +0100
+
+pavucontrol (0.9.9-1) unstable; urgency=low
+
+  * New Upstream Version
+  * debian/control: Bump libcanberra-gtk build-dep to >= 0.16
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 27 Sep 2009 23:47:23 +0200
+
+pavucontrol (0.9.8-1) unstable; urgency=low
+
+  * New Upstream Version
+  * debian/copyright: Updated
+  * debian/control: bump libpulse-dev build-depend to >= 0.9.15
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 19 Apr 2009 15:08:33 +0100
+
+pavucontrol (0.9.7-1) experimental; urgency=low
+
+  * New Upstream Version
+  * debian/control: Add Build-Depend on libpulse-dev (>= 0.9.12), intltool
+    and libcanberra-gtk-dev
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Wed, 24 Dec 2008 22:34:14 +0100
+
+pavucontrol (0.9.6+svn20080426-1) unstable; urgency=low
+
+  * New upstream svn snapshot
+  * debian/patches/0001-Define-missing-flags.patch
+    - Added. Define some flags that are not in the current version of
+    pulseaudio
+  * debian/copyright: Updated
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 26 Apr 2008 01:08:43 +0200
+
+pavucontrol (0.9.6-1) unstable; urgency=low
+
+  * New Upstream Version
+  * debian/control: Bump Build-Depends on libpulse-dev to >= 0.9.7.  This
+    syncs up the debian build dependencies with the checks in configure.ac.
+
+ -- CJ van den Berg <cj@vdbonline.com>  Sat, 29 Mar 2008 00:26:08 +0100
+
+pavucontrol (0.9.5-1) unstable; urgency=low
+
+  * New Upstream Version. (Closes: #448329)
+  * debian/copyright: Remove LGPL. paprefs is now fully GPL.
+  * debian/control:
+    + Add Vcs-* fields.
+    + Add Homepage field.
+    + Add quilt patch system.
+  * debian/patches:
+    + Add 0001-Correct-invalid-category-entry-in-desktop-file.patch
+  * debian/menu: Move to Applications section now that Apps is obsolete.
+
+ -- CJ van den Berg <cj@vdbonline.com>  Wed, 21 Nov 2007 17:39:16 +0100
+
+pavucontrol (0.9.4-2) unstable; urgency=low
+
+  [ Loic Minier ]
+  * Fix typo in copyright.
+
+  [ CJ van den Berg ]
+  * debian/rules: Port to CDBS.
+  * debian/patches/01_use_stock_g2.14_icons.dpatch:
+    - Removed. No longer needed for Gnome 2.18.
+
+ -- CJ van den Berg <cj@vdbonline.com>  Tue, 29 May 2007 10:00:36 +0200
+
+pavucontrol (0.9.4-1) unstable; urgency=low
+
+  [ CJ van den Berg ]
+  * Initial release
+
+  [ Loic Minier ]
+  * Clarify which files are under which license.
+
+ -- Loic Minier <lool@dooz.org>  Sat, 21 Oct 2006 09:51:48 +0200
